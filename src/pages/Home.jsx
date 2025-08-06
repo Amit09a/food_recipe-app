@@ -15,13 +15,13 @@ function Home() {
   const bottomRef = useRef()
   const [query, setQuery] = useState("")
 
-  const { user } = useAuth() // ✅ Move to top
+  const { user } = useAuth() 
 
   const fetchRecipes = async (queryStr = query, pageNum = page) => {
     if (loading) return
     setLoading(true)
     setError(null)
-
+// Replace the API key with yours
     const endpoint = `https://api.spoonacular.com/recipes/complexSearch?query=${queryStr}&number=12&offset=${(pageNum - 1) * 12}&addRecipeInformation=true&apiKey=${import.meta.env.VITE_API_KEY}`
 
     try {
